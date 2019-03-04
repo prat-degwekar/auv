@@ -35,29 +35,27 @@ void pidStatus() {
   Serial.print(F("\t"));
   Serial.print(pid_i_gain_yaw);
   Serial.print(F("\t"));
-  Serial.print(pid_d_gain_yaw);
-  Serial.println();
+  Serial.println(pid_d_gain_yaw);
   Serial.print(F("Pitch:\t"));
   Serial.print(pid_p_gain_pitch);
   Serial.print(F("\t"));
   Serial.print(pid_i_gain_pitch);
   Serial.print(F("\t"));
-  Serial.print(pid_d_gain_pitch);
-  Serial.println();
+  Serial.println(pid_d_gain_pitch);
   Serial.print(F("Roll:\t"));
   Serial.print(pid_p_gain_roll);
   Serial.print(F("\t"));
   Serial.print(pid_i_gain_roll);
   Serial.print(F("\t"));
-  Serial.print(pid_d_gain_roll);
-  Serial.println();
+  Serial.println(pid_d_gain_roll);
   Serial.print(F("Depth:\t"));
   Serial.print(pid_p_gain_depth);
   Serial.print(F("\t"));
   Serial.print(pid_i_gain_depth);
   Serial.print(F("\t"));
-  Serial.print(pid_d_gain_depth);
-  Serial.println();
+  Serial.println(pid_d_gain_depth);
+  Serial.print(F("Stable depth: "));
+  Serial.println(stable_depth);
 }
 
 void pidtune() {
@@ -102,6 +100,11 @@ void pidtune() {
       pid_i_gain_depth = atof(par2);
     } else if (strcmp(par1, "d") == 0) {
       pid_d_gain_depth = atof(par2);
+    }
+  } else if (strcmp(cmd, "sd") == 0) {
+    Serial.println(F("Stable depth"));
+    if (strcmp(par1, "s") == 0) {
+      stable_depth = atof(par2);
     }
   } else {
     Serial.println(F("Invalid command to pidtune, returning"));
