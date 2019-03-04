@@ -1,5 +1,4 @@
-String inputString = "";     // a String to hold incoming data
-bool stringComplete = false; // whether the string is complete
+
 
 // void loop() {
 //   // print the string when a newline arrives:
@@ -31,5 +30,11 @@ void serialEvent() {
 
 void pidtune() {
   // COVFEFE
-  Serial.println("# in pidtune");
+  Serial.println(F("# in pidtune"));
+  char *is = inputString.c_str();
+  char *cmd;
+  p = strtok(is, " ");
+  if (strcmp(p, "y") == 0) {
+     Serial.println(F("Yaw command"));
+  }
 }

@@ -9,6 +9,13 @@
 #include <Wire.h>
 #include <utility/imumaths.h>
 
+#define DEBUG
+#ifdef DEBUG
+#define D(x) do {x} while(0)
+#else
+#define D(x)
+#endif
+
 // ESC PINS for PWM Signals
 
 Servo left;
