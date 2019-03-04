@@ -71,36 +71,36 @@ void pidtune() {
     Serial.println(F("Yaw command"));
     if (strcmp(par1, "p") == 0) {
       pid_p_gain_yaw = atof(par2);
-    } else if (strcmp(par1, "i")) {
+    } else if (strcmp(par1, "i") == 0) {
       pid_i_gain_yaw = atof(par2);
-    } else if (strcmp(par1, "d")) {
+    } else if (strcmp(par1, "d") == 0) {
       pid_d_gain_yaw = atof(par2);
     }
   } else if (strcmp(cmd, "p") == 0) {
     Serial.println(F("Pitch command"));
     if (strcmp(par1, "p") == 0) {
       pid_p_gain_pitch = atof(par2);
-    } else if (strcmp(par1, "i")) {
+    } else if (strcmp(par1, "i") == 0) {
       pid_i_gain_pitch = atof(par2);
-    } else if (strcmp(par1, "d")) {
+    } else if (strcmp(par1, "d") == 0) {
       pid_d_gain_pitch = atof(par2);
     }
   } else if (strcmp(cmd, "r") == 0) {
     Serial.println(F("Roll command"));
     if (strcmp(par1, "p") == 0) {
       pid_p_gain_roll = atof(par2);
-    } else if (strcmp(par1, "i")) {
+    } else if (strcmp(par1, "i") == 0) {
       pid_i_gain_roll = atof(par2);
-    } else if (strcmp(par1, "d")) {
+    } else if (strcmp(par1, "d") == 0) {
       pid_d_gain_roll = atof(par2);
     }
   } else if (strcmp(cmd, "d") == 0) {
     Serial.println(F("Depth command"));
     if (strcmp(par1, "p") == 0) {
       pid_p_gain_depth = atof(par2);
-    } else if (strcmp(par1, "i")) {
+    } else if (strcmp(par1, "i") == 0) {
       pid_i_gain_depth = atof(par2);
-    } else if (strcmp(par1, "d")) {
+    } else if (strcmp(par1, "d") == 0) {
       pid_d_gain_depth = atof(par2);
     }
   } else {
