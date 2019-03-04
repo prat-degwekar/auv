@@ -29,37 +29,35 @@ void serialEvent() {
 }
 void pidStatus() {
   Serial.println(F("### Current Status"));
-  Serial.println(F("\n"));
   Serial.println(F("Axis\tP\tI\tD"));
-  Serial.println(F("\n"));
-  Serial.println(F("Yaw:\t"));
-  Serial.println(pid_p_gain_yaw);
-  Serial.println(F("\t"));
-  Serial.println(pid_i_gain_yaw);
-  Serial.println(F("\t"));
-  Serial.println(pid_d_gain_yaw);
-  Serial.println(F("\n"));
-  Serial.println(F("Pitch:\t"));
-  Serial.println(pid_p_gain_pitch);
-  Serial.println(F("\t"));
-  Serial.println(pid_i_gain_pitch);
-  Serial.println(F("\t"));
-  Serial.println(pid_d_gain_pitch);
-  Serial.println(F("\n"));
-  Serial.println(F("Roll:\t"));
-  Serial.println(pid_p_gain_roll);
-  Serial.println(F("\t"));
-  Serial.println(pid_i_gain_roll);
-  Serial.println(F("\t"));
-  Serial.println(pid_d_gain_roll);
-  Serial.println(F("\n"));
-  Serial.println(F("Depth:\t"));
-  Serial.println(pid_p_gain_depth);
-  Serial.println(F("\t"));
-  Serial.println(pid_i_gain_depth);
-  Serial.println(F("\t"));
-  Serial.println(pid_d_gain_depth);
-  Serial.println(F("\n"));
+  Serial.print(F("Yaw:\t"));
+  Serial.print(pid_p_gain_yaw);
+  Serial.print(F("\t"));
+  Serial.print(pid_i_gain_yaw);
+  Serial.print(F("\t"));
+  Serial.print(pid_d_gain_yaw);
+  Serial.println();
+  Serial.print(F("Pitch:\t"));
+  Serial.print(pid_p_gain_pitch);
+  Serial.print(F("\t"));
+  Serial.print(pid_i_gain_pitch);
+  Serial.print(F("\t"));
+  Serial.print(pid_d_gain_pitch);
+  Serial.println();
+  Serial.print(F("Roll:\t"));
+  Serial.print(pid_p_gain_roll);
+  Serial.print(F("\t"));
+  Serial.print(pid_i_gain_roll);
+  Serial.print(F("\t"));
+  Serial.print(pid_d_gain_roll);
+  Serial.println();
+  Serial.print(F("Depth:\t"));
+  Serial.print(pid_p_gain_depth);
+  Serial.print(F("\t"));
+  Serial.print(pid_i_gain_depth);
+  Serial.print(F("\t"));
+  Serial.print(pid_d_gain_depth);
+  Serial.println();
 }
 
 void pidtune() {
