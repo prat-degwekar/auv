@@ -109,4 +109,5 @@ void pidtune() {
     Serial.println(F("Invalid command to pidtune, returning"));
     // return;
   }
+  pidStatus();
 }
