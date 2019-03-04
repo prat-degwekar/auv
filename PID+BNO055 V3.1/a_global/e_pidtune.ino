@@ -65,7 +65,7 @@ void pidStatus() {
 void pidtune() {
   Serial.println(F("# in pidtune\n"));
   char *is = inputString.c_str();
-  char *cmd, par1, par2;
+  char *cmd, *par1, *par2;
   cmd = strtok(is, " ");
   par1 = strtok(NULL, " ");
   par2 = strtok(NULL, "\n");
