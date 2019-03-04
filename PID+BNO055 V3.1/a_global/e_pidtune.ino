@@ -66,7 +66,7 @@ void pidtune() {
   char *cmd, *par1, *par2;
   cmd = strtok(is, " ");
   par1 = strtok(NULL, " ");
-  par2 = strtok(NULL, "\n");
+  par2 = strtok(NULL, "\r");
   if (strcmp(cmd, "y") == 0) {
     Serial.println(F("Yaw command"));
     if (strcmp(par1, "p") == 0) {
