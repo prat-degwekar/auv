@@ -76,31 +76,31 @@ void setup() {
       delay(BNO055_SAMPLERATE_DELAY_MS);
     }
   }
-  //
-  //  /******************************************* MS5837 Sensor
-  //   * ********************************************/
-  //
-  //  Serial.println("Starting");
-  //
-  //  Wire.begin();
-  //
-  //  // Initialize pressure sensor
-  //  // Returns true if initialization was successful
-  //  // We can't continue with the rest of the program unless we can initialize the
-  //  // sensor
-  //  while (!depthSensor.init()) {
-  //    Serial.println("Init failed!");
-  //    Serial.println("Are SDA/SCL connected correctly?");
-  //    Serial.println("Blue Robotics Bar30: White=SDA, Green=SCL");
-  //    Serial.println("\n\n\n");
-  //    delay(5000);
-  //  }
-  //
-  //  depthSensor.setModel(MS5837::MS5837_30BA);
-  //  depthSensor.setFluidDensity(997); // kg/m^3 (freshwater, 1029 for seawater)
-  //
-  //  /************************************** Motor Pin Initialization
-  //   * **************************************/
+
+  /******************************************* MS5837 Sensor
+   * ********************************************/
+
+  Serial.println("Starting");
+
+  Wire.begin();
+
+  // Initialize pressure sensor
+  // Returns true if initialization was successful
+  // We can't continue with the rest of the program unless we can initialize the
+  // sensor
+  while (!depthSensor.init()) {
+    Serial.println("Init failed!");
+    Serial.println("Are SDA/SCL connected correctly?");
+    Serial.println("Blue Robotics Bar30: White=SDA, Green=SCL");
+    Serial.println("\n\n\n");
+    delay(5000);
+  }
+
+  depthSensor.setModel(MS5837::MS5837_30BA);
+  depthSensor.setFluidDensity(997); // kg/m^3 (freshwater, 1029 for seawater)
+
+  /************************************** Motor Pin Initialization
+   * **************************************/
   left.attach(4);
   right.attach(5);
   front.attach(6);
@@ -116,30 +116,15 @@ void setup() {
     stable_roll = stable_roll + euler.z();
     stable_pitch = stable_pitch + euler.y();
     stable_yaw = stable_yaw + euler.x();
-    //    stable_depth = stable_depth + (depthSensor.depth() * 1000);
-    while (micros() - bno055_timer <= BNO055_SAMPLERATE_DELAY_MS)
-      ;
+    starting_depth = starting_depth +(depthSensor.depth()*1000);
+    while (micros() - bno055_timer <= BNO055_SAMPLERATE_DELAY_MS) ;
   }
   /*****Starting postition stabilized******/
-  stable_roll = stable_roll / 100;
-  stable_pitch = stable_pitch / 100;
-  stable_yaw = stable_yaw / 100;
-  /*
-  if(stable_roll>180)
-  {
-    stable_roll = stable_roll-360;
-  }
-  if(stable_pitch>180)
-  {
-    stable_pitch = stable_pitch-360;
-  }
-  if(stable_yaw>180)
-  {
-    stable_yaw = stable_yaw-360;
-  }
-  */
-  //  stable_depth = stable_depth / 100;
-  
+  stable_roll = stable_roll/100;
+  stable_pitch = stable_pitch/100;
+  stable_yaw = stable_yaw/100;
+  starting_depth = starting_depth/100;
+
   /********************************** Thruster Initialization Sequence
    * **********************************/
   motor_arm(0);

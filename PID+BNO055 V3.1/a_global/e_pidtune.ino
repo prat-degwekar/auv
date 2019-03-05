@@ -86,7 +86,7 @@ void pidtune() {
     } else if (strcmp(par1, "d") == 0) {
       pid_d_gain_pitch = atof(par2);
     }
-  } else if (strcmp(cmd, "r") == 0) {
+  }else if (strcmp(cmd, "r") == 0) {
     Serial.println(F("Roll command"));
     if (strcmp(par1, "p") == 0) {
       pid_p_gain_roll = atof(par2);

@@ -1,12 +1,11 @@
 /***************************************** Library Files to be used
  * *****************************************/
-
+#include <Wire.h>
 #include <Adafruit_BNO055.h>
 #include <Adafruit_Sensor.h>
 #include <EEPROM.h>
 #include <MS5837.h>
 #include <Servo.h>
-#include <Wire.h>
 #include <utility/imumaths.h>
 
 #define DEBUG
@@ -36,7 +35,8 @@ unsigned long bno055_timer = 0;
 /** MS5837 Depth Sensor Definitions **/
 MS5837 depthSensor;
 float current_depth;
-float stable_depth;
+float stable_depth=30;
+float starting_depth = 0;
 
 // Stable position for forward motion test (PID Stability)
 float stable_pitch, stable_yaw, stable_roll;
