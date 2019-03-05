@@ -50,10 +50,10 @@ void setup() {
   bno.getEvent(&event);
   if (foundCalib) {
     Serial.println("Move sensor slightly to calibrate magnetometers");
-    while (!bno.isFullyCalibrated()) {
-      bno.getEvent(&event);
-      delay(BNO055_SAMPLERATE_DELAY_MS);
-    }
+//    while (!bno.isFullyCalibrated()) {
+//      bno.getEvent(&event);
+//      delay(BNO055_SAMPLERATE_DELAY_MS);
+//    }
   } else {
     Serial.println("Please Calibrate Sensor: ");
     while (!bno.isFullyCalibrated()) {
