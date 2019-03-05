@@ -44,8 +44,7 @@ float pid_i_mem_depth = 0.0;
 float pid_last_error_depth = 0.0;
 float pid_output_depth;
 
-float pid_error_temp =
-    0; // Error calculation - recycled over and over for computing YPR each
+float pid_error_temp = 0; // Error calculation - recycled over and over for computing YPR each
 
 String inputString = "";     // a String to hold incoming data
 bool stringComplete = false; // whether the string is complete
