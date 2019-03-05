@@ -12,6 +12,9 @@
   routine is run between each time loop() runs, so using delay inside loop can
   delay response. Multiple bytes of data may be available.
 */
+
+void (*resetFunc)(void) = 0;
+
 void serialEvent() {
   while (Serial.available()) {
     // get the new byte:
@@ -106,6 +109,8 @@ void pidtune() {
     if (strcmp(par1, "s") == 0) {
       stable_depth = atof(par2);
     }
+  } else if (strcmp(cmd, "rst") == 0) {
+    resetFunc();
   } else {
     Serial.println(F("Invalid command to pidtune, returning"));
     // return;
