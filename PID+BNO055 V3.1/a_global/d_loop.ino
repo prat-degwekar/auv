@@ -4,8 +4,8 @@ void loop() {
   current_roll = euler.z();
   current_pitch = euler.y();
   current_yaw = euler.x();
-  current_depth =depthSensor.depth()*1000 - starting_depth;  //in mm
-  current_depth= current_depth/100;
+  current_depth = depthSensor.depth() * 1000 - starting_depth; //in mm
+  current_depth = current_depth / 100;
   //Serial.print("Current Depth: ");
   //Serial.println(pid_output_pitch);
   //Serial.print("\tDepth.depth(): ");
@@ -42,16 +42,32 @@ void loop() {
   esc_front_power = motor_front_thrust + pid_output_pitch - pid_output_depth;
   esc_back_power = motor_back_thrust - pid_output_pitch - pid_output_depth;
 
-  // Speed limiters
-  if (esc_left_power > 1800)
-    esc_left_power = 1800;
-  else if (esc_left_power < 1550)
-    esc_left_power = 1550;
+  if (start == false)
+  {
+    if (abs(current_depth - stable_depth) <= 10)
+    {
+      start = true;
+    }
+    else
+    {
+      esc_left_power = 1500;
+      esc_right_power = 1500;
+    }
+  }
 
-  if (esc_right_power > 1800)
-    esc_right_power = 1800;
-  else if (esc_right_power < 1550)
-    esc_right_power = 1550;
+  // Speed limiters
+  if (start == true)
+  {
+    if (esc_left_power > 1800)
+      esc_left_power = 1800;
+    else if (esc_left_power < 1550)
+      esc_left_power = 1550;
+
+    if (esc_right_power > 1800)
+      esc_right_power = 1800;
+    else if (esc_right_power < 1550)
+      esc_right_power = 1550;
+  }
 
   if (esc_back_power > 1800)
     esc_back_power = 1800;

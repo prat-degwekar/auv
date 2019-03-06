@@ -49,6 +49,7 @@ int motor_left_thrust = 0;
 int motor_back_thrust = 0;
 int motor_front_thrust = 0;
 int motor_right_thrust = 0;
+bool start = false; 
 
 // ESC power
 int esc_left_power, esc_right_power, esc_back_power, esc_front_power;
