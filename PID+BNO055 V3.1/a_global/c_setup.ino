@@ -50,10 +50,10 @@ void setup() {
   bno.getEvent(&event);
   if (foundCalib) {
     Serial.println("Move sensor slightly to calibrate magnetometers");
-//    while (!bno.isFullyCalibrated()) {
-//      bno.getEvent(&event);
-//      delay(BNO055_SAMPLERATE_DELAY_MS);
-//    }
+    while (!bno.isFullyCalibrated()) {
+      bno.getEvent(&event);
+      delay(BNO055_SAMPLERATE_DELAY_MS);
+    }
   } else {
     Serial.println("Please Calibrate Sensor: ");
     while (!bno.isFullyCalibrated()) {
@@ -116,14 +116,14 @@ void setup() {
     stable_roll = stable_roll + euler.z();
     stable_pitch = stable_pitch + euler.y();
     stable_yaw = stable_yaw + euler.x();
-    starting_depth = starting_depth +(depthSensor.depth()*1000);
+    starting_depth = starting_depth + (depthSensor.depth() * 1000);
     while (micros() - bno055_timer <= BNO055_SAMPLERATE_DELAY_MS) ;
   }
   /*****Starting postition stabilized******/
-  stable_roll = stable_roll/100;
-  stable_pitch = stable_pitch/100;
-  stable_yaw = stable_yaw/100;
-  starting_depth = starting_depth/100;
+  stable_roll = stable_roll / 100;
+  stable_pitch = stable_pitch / 100;
+  stable_yaw = stable_yaw / 100;
+  starting_depth = starting_depth / 100;
 
   /********************************** Thruster Initialization Sequence
    * **********************************/
