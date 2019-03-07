@@ -7,8 +7,8 @@
 #
 
 
-mkdir -p temp_build
-cd temp_build
+mkdir -p temp
+cd temp
 cat ../*.ino > a.ino
 cp ../Makefile .
 make upload
