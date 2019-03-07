@@ -9,8 +9,9 @@ void loop() {
   //Serial.print("Current Depth: ");
   //Serial.println(pid_output_pitch);
   //Serial.print("\tDepth.depth(): ");
-  //Serial.print(depthSensor.depth());
-  //Serial.print("\tStarting Depth: ");
+  Serial.print(stable_yaw);
+  Serial.print("\t");
+  Serial.println(current_yaw);
   //Serial.println(starting_depth);
   //  // Serial.println(current_yaw);
 
@@ -85,10 +86,10 @@ void loop() {
 
   //    Serial.print("PID: ");
   //    Serial.print(pid_output_yaw);
-  //    Serial.print("Left Motor: ");
-  //    Serial.print(esc_left_power);
-  //    Serial.print("\tRight Motor: ");
-  //    Serial.println(esc_right_power);
+  //      Serial.print("Left Motor: ");
+  //      Serial.print(esc_left_power);
+  //      Serial.print("\tRight Motor: ");
+  //      Serial.println(esc_right_power);
   //  Serial.print("\tError: ");
   //  Serial.println(current_pitch - stable_pitch);
   //  Serial.print("d");
